@@ -1,10 +1,15 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Ramsey\Uuid\Uuid;
+
 class EventController extends Controller
 {
     public function index(){
-        $event = \App\Event::get();
+        $event = Event::get();
         return view('admin.event.index')->with('event', $event);
         }
         
@@ -25,35 +30,62 @@ class EventController extends Controller
         $start = $request->start;
         $finish = $request->finish;
         $quota = $request->quota;
-        $event = new \App\Event;
-        $event->foto = Input::get('file');
-        if (Input::hasFile('file')) {
-        $event= Input::file('file');
-        $event->move(public_patch(). '/', $file->getClientOriginalName());
-        $user->name= $event->getClientOriginalName();
+        $image = $request->image;
+
+        $event = new Event;
+        if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $uuid4 = Uuid::uuid4();
+        $name = $uuid4->toStrong(). '.' .$image->getClientOriginalExtension();
+        $destination = public_path('/images/event');
+        $imagePath = $destinationPath. '/' .$name;
+        $image->move(destinationPath, $name);
+        $event->image = $name;
         }
-        $event->nama = $name;
-        $event->destail = $detail;
-        $event->description = $description;
-        $event->start = $start;
-        $event->finish = $finish;
-        $event->quota = $quota;
+
+        $event->name = $request->name;
+        $event->detail = $request->detail;
+        $event->description = $request->description;
+        $event->start = $request->start;
+        $event->finish = $request->finish;
+        $event->quota = $request->quota;
         $event->save();
         return redirect('admin/event');
         }
 
      public function update(Request $request, $id){
         $name = $request->name;
+        $detail = $request->detail;
         $description = $request->description;
-        $tgl = $request->tgl;
+        $start = $request->start;
+        $finish = $request->finish;
         $quota = $request->quota;
-        $event = \App\Event::find($id);
-        $event->name = $name;
-        $event->description = $description;
-        $event->tgl = $tgl;
-        $event->quota = $quota;
+        $image = $request->image;
+
+        $event = Event::find($id);
+        if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $uuid4 = Uuid::uuid4();
+        $name = $uuid4->toStrong(). '.' .$image->getClientOriginalExtension();
+        $destination = public_path('/images/event');
+        $imagePath = $destinationPath. '/' .$name;
+        $image->move(destinationPath, $name);
+        $event->image = $name;
+        }
+
+        $event->name = $request->name;
+        $event->detail = $request->detail;
+        $event->description = $request->description;
+        $event->start = $request->start;
+        $event->finish = $request->finish;
+        $event->quota = $request->quota;
         $event->save();
         return redirect('admin/event');
         }
 
+        public function destroy($id){
+            $event = \App\Event::find($id);
+            $event->delete();
+            return redirect('admin/event');
+        }
         }
