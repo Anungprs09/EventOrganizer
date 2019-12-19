@@ -19,7 +19,7 @@
               <label>Nama</label>
               <input type="text" name="nama" placeholder="Nama" class="form-control"><br>
               <label>Email</label>
-              <input type="text" name="email" placeholder="Deskripsi" class="form-control"><br>
+              <input type="text" name="email" placeholder="email" class="form-control"><br>
               <label>Password</label>
               <input type="password" name="password" placeholder="Password"
               class="form-control">

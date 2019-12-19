@@ -10,29 +10,31 @@
             <h1>participant</h1>
           </div>
           <div class="section-body">
-                              <?php
-                    $no = 1;
-                    ?>
-                    <div class="container p-4">
-                    <h1 class="text-center">P E S E R T A</h1>
-                    <table class="table">
-                    <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Kouta</th>
-                    <th>Opsi</th>
-                    </tr>
-                    <tr>
-                    <td>1</td>
-                    <td>Nama Event</td>
-                    <td>1000</td>
-                    <td>
-                    <a class="btn btn-sm btn-danger" href="peserta/view"> <i class="fa fa-eye"></i>
-                    Lihat</button>
-                    </a>
-                    </tr>
-                    </table>
-                    </div>
+                  <div class="container p-4">
+        <h1 class="text-center">PARTICIPANT</h1>
+        <table class="table">
+        <tr>
+        <th>No</th>
+        <th>name</th>
+        <th>Opsi</th>
+        </tr>
+        <?php
+        $no= 1;
+        ?>
+        @foreach($event as $myevent)
+        <tr>
+        <td>{{$no++}}</td>
+        <td>{{$myevent->name}}</td>
+        <td>
+        <a class="btn btn-sm btn-danger" href="participant/{{$myevent->id}}/view"> <i
+        class="fa fa-eye"></i> Lihat</button>
+        </a>
+        </tr>
+        @endforeach
+        </table>
+        </div>
+
+
           </div>
         </section>
 </div>

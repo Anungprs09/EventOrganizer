@@ -42,10 +42,14 @@ Route::group(['prefix'=>'admin'],function(){
     Route::post('/{id}', 'EventController@destroy');
     });
 
-     Route::group(['prefix'=>'participant'], function () {
-         Route::get('/', 'ParticipantController@index');
-         Route::get('/view','ParticipantController@view');
-         });
+
+    Route::group(['prefix'=>'participant'], function () {
+        Route::get('/', 'ParticipantController@index');
+        Route::get('/{id}/view','ParticipantController@view');
+        Route::post('/{id}','ParticipantController@destroy');
+        });
+        
+        
             
 
 });

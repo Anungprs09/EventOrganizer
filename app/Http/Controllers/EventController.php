@@ -54,13 +54,6 @@ class EventController extends Controller
         }
 
      public function update(Request $request, $id){
-        $name = $request->name;
-        $detail = $request->detail;
-        $description = $request->description;
-        $start = $request->start;
-        $finish = $request->finish;
-        $quota = $request->quota;
-        $image = $request->image;
 
         $event = Event::find($id);
         if ($request->hasFile('image')) {
