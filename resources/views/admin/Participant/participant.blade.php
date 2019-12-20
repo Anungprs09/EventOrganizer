@@ -28,7 +28,7 @@ $no = 1
 @foreach($participant as $participants)
 <tr>
 <td>{{$no++}}</td>
-<td>{{$participants->name}}</td>
+<td>{{$participants->name_user}}</td>
 <td>{{$participants->email}}</td>
 <td>{{$participants->name}}</td>
 <td>

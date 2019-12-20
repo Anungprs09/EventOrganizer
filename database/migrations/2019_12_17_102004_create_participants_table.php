@@ -15,13 +15,12 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id') ->on('users')
                 ->onDelete('cascade')
                 ->onChange('cascade');
-
-            $table->bigInteger('event_id');
+            $table->bigInteger('event_id')->unsigned();
             $table->foreign('event_id')
                 ->references('id') ->on('events')
                 ->onDelete('cascade')

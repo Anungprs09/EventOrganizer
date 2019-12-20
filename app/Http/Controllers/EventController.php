@@ -10,8 +10,8 @@ class EventController extends Controller
 {
     public function index(){
         $event = Event::get();
-        return view('admin.event.index')->with('event', $event);
-        }
+        return view('admin.Event.index', compact('event'));
+    }
         
   public function create(){
         return view('admin.event.create');
@@ -19,7 +19,7 @@ class EventController extends Controller
 
  public function edit($id)
         {
-        $event = \App\Event::find($id);
+        $event = Event::find($id);
         return view('admin.event.edit')->with('event',$event);
         }
 
