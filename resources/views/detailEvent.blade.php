@@ -15,7 +15,7 @@
         <div class="text-center">
             <h1>{{$event->name}}</h1>
             <br>
-            <hr class="garis">
+            <hr>
         </div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -33,8 +33,6 @@
                         <br>
 
                         <h2>Deskripsi</h2>
-                        <img width="50%"
-                        src="{{asset('storage/photo/' .$event->photo)}}"><br><br>
                         {{$event->description}}
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">

@@ -11,9 +11,9 @@
 @section('content')
 <div class="jumbotron content2">
         <div class="container text-center">
-            <h3>All of the Event you can see it here</h3>
-            <p>Enjoy your day.</p>
-            <hr class="garis">
+            <h3>Semua Event menarik bisa kamu lihat disini</h3>
+            <p>Nikmati harimu :D</p>
+            <hr>
         </div>
                 @if (session('status'))
                     <div class="alert alert-success">
@@ -25,7 +25,6 @@
                 @foreach($event as $evnt)
                 <div class="col mb-3">
                     <div class="card h-100">
-                    <img src="{{asset('storage/photo/' .$evnt->photo)}}" width="27%" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$evnt->name}}</h5>
                         <p class="card-text">Date  = {{$evnt->start}} -- {{$evnt->finish}}</p>

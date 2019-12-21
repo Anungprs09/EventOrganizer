@@ -9,7 +9,7 @@
 @section('header')
 <div class="header text-center text-light">
     <h1 class="Judul">Events Organizer</h1>
-    <p class="subJudul">Lorem, ipsum dolor.</p>
+    <p class="subJudul">Hai, Lihat-lihat event menarik</p>
     <hr color="white" width="60%">
     <a href="user/" class="btn btn-primary">Lihat Semua Event</a>
 </div>

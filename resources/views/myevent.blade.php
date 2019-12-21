@@ -22,14 +22,11 @@
             <li class="jumbotron list">
                 @foreach($participant as $event)
                 <div class="row">
-                    <div class="col col-lg-4">
-                        <img src="{{asset('storage/photo/')}}" alt="..." width="100%">
-                    </div>
-                    <div class="col col-lg-4 text-center">
+                    <div class="col col-lg-6 text-center">
                         <h4>{{$event->name}}</h4>
                         <p>{{$event->description}}</p>
                     </div>
-                    <div class="col col-lg-4 text-center">
+                    <div class="col col-lg-6 text-center">
                         <form class="" action="/user/{{$event->idparticipants}}" method="post">
                             @method('delete')
                             @csrf
